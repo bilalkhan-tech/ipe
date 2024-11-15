@@ -1,8 +1,8 @@
-import {mvs} from 'config/metrices';
 import {View} from 'react-native';
 import React from 'react';
-import {colors} from 'config/colors';
-const Line = ({marginVertical = 0, bgColor = colors.CCCCCC}) => {
+import {mvs} from '../../../config/metrices';
+import {colors} from '../../../config/colors';
+const Line = ({marginVertical = 0, bgColor = colors.gray}) => {
   return (
     <View
       style={{

@@ -1,9 +1,6 @@
 export {default as CloseEyeIconSvg} from './close-eye-svg';
 export {default as OpenEyeIconSvg} from './open-eye-svg';
-// export {default as BackIconSvg} from './back-icon-svg';
-// export {default as EditProfileLocation} from './edit-profile-location';
-// export {default as EditProfileName} from './edit-profile-name';
-// export {default as EditProfileMobile} from './edit-profile-mobile';
+export {default as UploadIconSvg} from './upload-icon-svg';
 export {default as PrevIconSvg} from './prev-icon-svg';
 export {default as NameIconSvg} from './name-icon-svg';
 export {default as NextIconSvg} from './next-icon-svg';
@@ -17,3 +14,6 @@ export {default as Swipe2ndSvg} from './swipe-2nd-svg';
 export {default as Swipe1stSvg} from './swipe-1st-svg';
 export {default as Swipe3rdSvg} from './swipe-3rd-svg';
 export {default as LinkedInSvg} from './linked-in-svg';
+export {default as FillRadioBtnSvg} from './fill-radio-btn-svg';
+export {default as CheckBoxIconSvg} from './checkbox-icon-svg';
+export {default as MenueSvg} from './menue-svg';

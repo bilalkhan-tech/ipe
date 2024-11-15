@@ -8,7 +8,7 @@ const PrimaryButton = ({
   disabled,
   onclick,
   label = 'click me',
-  color,
+  color = 'white',
   width,
   height = 44,
   style,

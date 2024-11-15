@@ -1,15 +1,31 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import styles from './styles';
-import {NextIconSvg, PrevIconSvg} from '../../assets/icons/user';
+import {
+  FlatList,
+  StatusBar,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {MenueSvg, NextIconSvg, PrevIconSvg} from '../../assets/icons/user';
+import BackHeader from '../../components/atoms/headers/back-header';
+import {Row} from '../../components/atoms/row';
+import PrimaryButton from '../../components/carts/button';
 import {colors} from '../../config/colors';
+import Bold from '../../typography/bold-text';
+import styles from './styles';
 
-const PrescreeningScreen = () => {
+const PrescreeningCandidates = props => {
+  console.log(
+    '🚀 ~ PrescreeningCandidates ~ props:',
+    props?.route?.params?.value,
+  );
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12; // Number of items per page
+  const [flag, setFlag] = useState(props?.route?.params?.value);
+  const itemsPerPage = 12;
+  const [items, setItems] = useState(itemsPerPage);
 
-  // Sample data for the table (15 items to represent multiple pages)
   const allData = [
     {
       id: '1',
@@ -118,11 +134,15 @@ const PrescreeningScreen = () => {
     },
   ];
 
-  // Pagination logic
   useEffect(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     setData(allData.slice(startIndex, endIndex));
+    setItems(
+      allData.length - startIndex < itemsPerPage
+        ? allData.length - startIndex
+        : itemsPerPage,
+    );
   }, [currentPage]);
 
   const handlePrevious = () => {
@@ -139,46 +159,68 @@ const PrescreeningScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Page header */}
-      <View style={styles.pageHeader}>
-        <Text style={styles.pageHeaderText}>Pre Screening</Text>
+      <StatusBar backgroundColor={colors.primary} barStyle={'light-content'} />
+      <BackHeader name="Sadruddin" date="Today   Jan 27" />
+      <View style={styles.btnContainer}>
+        <PrimaryButton
+          onclick={() => setFlag('Pre Screening')}
+          style={
+            flag == 'Pre Screening'
+              ? styles.preOnActiveBtn
+              : styles.preOnInActiveBtn
+          }
+          label="Pre Screening"
+          textStyle={
+            flag == 'Pre Screening' ? styles.activeTxt : styles.inActiveTxt
+          }
+        />
+        <PrimaryButton
+          onclick={() => setFlag('Onboard')}
+          style={
+            flag == 'Onboard' ? styles.preOnActiveBtn : styles.preOnInActiveBtn
+          }
+          label="Onboard"
+          textStyle={flag == 'Onboard' ? styles.activeTxt : styles.inActiveTxt}
+        />
+      </View>
+      <Row style={styles.searchContainer}>
+        <Bold label={'This Month'} />
+        <TextInput placeholder="Search" style={styles.searchInput} />
+        <MenueSvg />
+      </Row>
+      <View style={styles.tableContainer}>
+        <View style={styles.tableHeader}>
+          <Text style={styles.tableHeaderText}>S.NO.</Text>
+          <Text style={styles.tableHeaderText}>DATE</Text>
+          <Text style={styles.tableHeaderText}>NAME</Text>
+          <Text style={styles.tableHeaderText}>FIELD</Text>
+          <Text style={styles.tableHeaderText}>STATUS</Text>
+        </View>
+
+        <FlatList
+          data={data}
+          keyExtractor={item => item.id}
+          renderItem={({item, index}) => (
+            <View
+              style={[
+                styles.tableRow,
+                {backgroundColor: index % 2 == 0 ? colors.white : colors.gray},
+              ]}>
+              <Text style={styles.tableCell}>{item.id}</Text>
+              <Text style={styles.tableCell}>{item.date}</Text>
+              <Text style={styles.tableCell}>{item.name}</Text>
+              <Text style={styles.tableCell}>{item.field}</Text>
+              <Text style={styles.tableCell}>{item.status}</Text>
+            </View>
+          )}
+        />
       </View>
 
-      {/* Search bar */}
-      <TextInput placeholder="Search" style={styles.searchInput} />
-
-      {/* Table Header */}
-      <View style={styles.tableHeader}>
-        <Text style={styles.tableHeaderText}>S.NO.</Text>
-        <Text style={styles.tableHeaderText}>DATE</Text>
-        <Text style={styles.tableHeaderText}>NAME</Text>
-        <Text style={styles.tableHeaderText}>FIELD</Text>
-        <Text style={styles.tableHeaderText}>STATUS</Text>
-      </View>
-
-      {/* Data Table */}
-      <FlatList
-        data={data}
-        keyExtractor={item => item.id}
-        renderItem={({item}) => (
-          <View style={styles.tableRow}>
-            <Text style={styles.tableCell}>{item.id}</Text>
-            <Text style={styles.tableCell}>{item.date}</Text>
-            <Text style={styles.tableCell}>{item.name}</Text>
-            <Text style={styles.tableCell}>{item.field}</Text>
-            <Text style={styles.tableCell}>{item.status}</Text>
-          </View>
-        )}
-      />
-
-      {/* Pagination Controls */}
       <View style={styles.paginationControls}>
         <TouchableOpacity onPress={handlePrevious} disabled={currentPage === 1}>
           <PrevIconSvg color={currentPage === 1 ? colors.grey : colors.black} />
         </TouchableOpacity>
-        <Text style={styles.pageNumber}>{`Page ${currentPage} of ${Math.ceil(
-          allData.length / itemsPerPage,
-        )}`}</Text>
+
         <TouchableOpacity
           onPress={handleNext}
           disabled={currentPage === Math.ceil(allData.length / itemsPerPage)}>
@@ -191,8 +233,11 @@ const PrescreeningScreen = () => {
           />
         </TouchableOpacity>
       </View>
+      <Text style={styles.pageNumber}>{` ${currentPage} of ${Math.ceil(
+        allData.length / itemsPerPage,
+      )} Pages (${items} items}`}</Text>
     </View>
   );
 };
 
-export default PrescreeningScreen;
+export default PrescreeningCandidates;

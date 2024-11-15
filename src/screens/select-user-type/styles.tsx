@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     flex: 0,
     borderBottomRightRadius: mvs(30),
     borderBottomLeftRadius: mvs(30),
-    height: mvs(546),
+    height: mvs(500),
     marginBottom: mvs(50),
   },
   img: {

@@ -1,32 +1,67 @@
-import {ArrowIconLeft} from 'assets/icons';
-import {colors} from 'config/colors';
-import {mvs} from 'config/metrices';
-import {goBack} from 'navigation/navigation-ref';
-import React, {memo} from 'react';
-import {TouchableOpacity, View} from 'react-native';
-import Medium from 'typography/medium-text';
+import React from 'react';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import BackIconSvg from '../../../assets/icons/user/back-icon-svg';
+import {Profile} from '../../../assets/images';
+import {colors} from '../../../config/colors';
+import {mvs} from '../../../config/metrices';
 import {Row} from '../row';
-import {BackIconSvg} from 'assets/icons/user';
-const BackHeader = ({title, bgColor = colors.white, back = true}) => {
+import {useNavigation} from '@react-navigation/native';
+
+const BackHeader = ({name = 'abid', date = 'Today Jan 27'}) => {
+  const navigation = useNavigation();
   return (
-    <Row
-      style={{
-        backgroundColor: bgColor,
-        borderBottomRightRadius: mvs(15),
-        borderBottomLeftRadius: mvs(15),
-        paddingVertical: mvs(15),
-      }}>
-      {back && (
-        <TouchableOpacity
-          onPress={() => goBack()}
-          style={{marginLeft: mvs(15)}}>
+    <View style={styles.container}>
+      <Row style={{gap: 10}}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <BackIconSvg />
         </TouchableOpacity>
-      )}
-      <Medium color={colors.white} fontSize={mvs(16)} label={title} />
-
-      <View />
-    </Row>
+        <View style={styles.userInfo}>
+          <Image source={Profile} style={styles.profilePic} />
+          <Text style={styles.userName}>{name}</Text>
+        </View>
+      </Row>
+      <View style={styles.dateView}>
+        <Text style={styles.date}>{date}</Text>
+      </View>
+    </View>
   );
 };
-export default memo(BackHeader);
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: mvs(20),
+    paddingVertical: mvs(9),
+    backgroundColor: colors.primary,
+  },
+
+  userInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  profilePic: {
+    width: mvs(41),
+    height: mvs(41),
+    borderRadius: mvs(20),
+    marginRight: mvs(8),
+  },
+  userName: {
+    color: colors.white,
+    fontSize: mvs(18),
+    fontWeight: 'bold',
+  },
+  dateView: {
+    padding: mvs(7),
+    borderWidth: mvs(2),
+    borderColor: colors.primary2,
+    borderRadius: mvs(3),
+  },
+  date: {
+    color: colors.white,
+    fontSize: mvs(14),
+  },
+});
+
+export default BackHeader;

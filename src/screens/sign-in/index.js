@@ -102,23 +102,16 @@ const SignIn = ({navigation}) => {
               }}>
               <Regular
                 onPress={() => navigation.navigate('ForgotPassword')}
-                style={{
-                  fontSize: 12,
-                  color: colors.green,
-                  justifyContent: 'flex-end',
-                  width: width,
-                  marginTop: mvs(10),
-                  marginBottom: mvs(40),
-                }}
+                style={styles.forgetTxt}
                 label={'Forgot Password?'}
               />
             </View>
             <PrimaryButton
-              onclick={() => navigation.navigate('PrescreeningScreen')}
+              onclick={() => navigation.navigate('RecruitmentDashboard')}
               label="Login"
               height={56}
-              style={styles.candidateBtn}
-              textStyle={styles.candidateTxt}
+              style={styles.loginBtn}
+              textStyle={styles.loginText}
             />
             <LinkedInCard
               onPress={() => navigation.navigate('SignUp')}

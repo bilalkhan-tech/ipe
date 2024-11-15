@@ -1,9 +1,8 @@
 import React from 'react';
-import {StatusBar, View} from 'react-native';
+import {View} from 'react-native';
 import {LogoSvg} from '../../assets/icons/user';
 import PrimaryButton from '../../components/carts/button';
 import {colors} from '../../config/colors';
-import {mvs} from '../../config/metrices';
 import Regular from '../../typography/regular-text';
 import styles from './styles';
 
@@ -23,15 +22,15 @@ const SignUpOrLogin = ({navigation}) => {
           onclick={() => navigation.navigate('SignIn')}
           label="Log In"
           height={56}
-          style={styles.candidateBtn}
-          textStyle={styles.candidateTxt}
+          style={styles.loginBtn}
+          textStyle={styles.loginTxt}
         />
         <PrimaryButton
           onclick={() => navigation.navigate('SignIn')}
           label="Sign Up"
           height={56}
-          style={styles.recruiterBtn}
-          textStyle={styles.recruiterTxt}
+          style={styles.signupBtn}
+          textStyle={styles.signupTxt}
         />
       </View>
     </View>

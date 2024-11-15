@@ -10,23 +10,30 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  descTxt: {textAlign: 'center', width: mvs(267), marginVertical: mvs(100)},
-  candidateBtn: {
+  descTxt: {
+    textAlign: 'justify',
+    fontSize: mvs(14),
+    width: mvs(250),
+    marginVertical: mvs(90),
+    paddingHorizontal: mvs(10),
+    lineHeight: mvs(18),
+  },
+  loginBtn: {
     marginHorizontal: mvs(20),
     borderRadius: mvs(50),
     marginBottom: mvs(20),
   },
-  candidateTxt: {
+  loginTxt: {
     color: colors.white,
   },
-  recruiterBtn: {
+  signupBtn: {
     marginHorizontal: mvs(20),
     borderRadius: mvs(50),
     backgroundColor: colors.white,
     borderWidth: mvs(1.5),
     borderColor: colors.secondary,
   },
-  recruiterTxt: {
+  signupTxt: {
     color: colors.black,
   },
 });

@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: 'center',
     color: colors.grey,
-    marginTop: mvs(28),
+    marginTop: mvs(20),
   },
 });

@@ -146,11 +146,11 @@ const SignUp = ({navigation}) => {
               </Text>
             </Text>
             <PrimaryButton
-              onclick={() => navigation.navigate('PrescreeningScreen')}
+              onclick={() => navigation.navigate('RecruitmentDashboard')}
               label="Create Account"
               height={56}
-              style={styles.candidateBtn}
-              textStyle={styles.candidateTxt}
+              style={styles.signupBtn}
+              textStyle={styles.signupTxt}
             />
             <LinkedInCard
               onPress={() => navigation.navigate('SignIn')}

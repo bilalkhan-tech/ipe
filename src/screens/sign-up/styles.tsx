@@ -31,14 +31,14 @@ const styles = StyleSheet.create({
     color: colors.grey,
     marginTop: mvs(28),
   },
-  candidateBtn: {
+  signupBtn: {
     borderRadius: mvs(50),
-    marginBottom: mvs(20),
+    marginBottom: mvs(10),
     backgroundColor: colors.white,
     borderWidth: mvs(2.5),
     borderColor: colors.secondary,
   },
-  candidateTxt: {
+  signupTxt: {
     color: colors.black,
   },
 });

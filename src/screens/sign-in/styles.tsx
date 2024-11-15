@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors} from '../../config/colors';
-import {mvs} from '../../config/metrices';
+import {mvs, width} from '../../config/metrices';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,14 +27,18 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontSize: 16,
   },
-  loginText: {
-    textAlign: 'center',
-    color: colors.grey,
-    marginTop: mvs(28),
+  forgetTxt: {
+    fontSize: 12,
+    color: colors.green,
+    textAlign: 'right',
+
+    width: width - mvs(60),
+    marginTop: mvs(10),
+    marginBottom: mvs(30),
   },
-  candidateBtn: {
+  loginBtn: {
     borderRadius: mvs(50),
-    marginBottom: mvs(20),
+    marginBottom: mvs(15),
   },
   candidateTxt: {
     color: colors.white,
