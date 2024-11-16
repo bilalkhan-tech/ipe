@@ -15,7 +15,7 @@ const RecruitmentDashboard = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={colors.primary} barStyle={'light-content'} />
-      <BackHeader name="Sadruddin" date="Today   Jan 27" />
+      <BackHeader back={false} name="Sadruddin" date="Today   Jan 27" />
 
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <Text style={styles.greetingText}>Hi Sadruddin co.</Text>
@@ -24,7 +24,6 @@ const RecruitmentDashboard = ({navigation}) => {
         <TouchableOpacity style={styles.createContainer}>
           <PrimaryButton
             onclick={() => navigation.navigate('RecruiterProfile')}
-            // onclick={() => navigation.navigate('JobPostScreen')}
             label="+ Create New"
             textStyle={styles.createButtonText}
             style={styles.createButton}

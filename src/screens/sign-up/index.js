@@ -146,7 +146,7 @@ const SignUp = ({navigation}) => {
               </Text>
             </Text>
             <PrimaryButton
-              onclick={() => navigation.navigate('RecruitmentDashboard')}
+              onclick={() => navigation.replace('RecruitmentDashboard')}
               label="Create Account"
               height={56}
               style={styles.signupBtn}

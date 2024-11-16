@@ -19,14 +19,14 @@ const SignUpOrLogin = ({navigation}) => {
       />
       <View style={{width: '100%'}}>
         <PrimaryButton
-          onclick={() => navigation.navigate('SignIn')}
+          onclick={() => navigation.replace('SignIn')}
           label="Log In"
           height={56}
           style={styles.loginBtn}
           textStyle={styles.loginTxt}
         />
         <PrimaryButton
-          onclick={() => navigation.navigate('SignIn')}
+          onclick={() => navigation.replace('SignUp')}
           label="Sign Up"
           height={56}
           style={styles.signupBtn}

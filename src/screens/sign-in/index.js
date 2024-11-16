@@ -107,7 +107,8 @@ const SignIn = ({navigation}) => {
               />
             </View>
             <PrimaryButton
-              onclick={() => navigation.navigate('RecruitmentDashboard')}
+              onclick={() => navigation.replace('RecruitmentDashboard')}
+              // onclick={() => navigation.navigate('JobBoard')}
               label="Login"
               height={56}
               style={styles.loginBtn}

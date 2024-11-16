@@ -17,3 +17,6 @@ export {default as LinkedInSvg} from './linked-in-svg';
 export {default as FillRadioBtnSvg} from './fill-radio-btn-svg';
 export {default as CheckBoxIconSvg} from './checkbox-icon-svg';
 export {default as MenueSvg} from './menue-svg';
+export {default as ActiveIconSvg} from './active-icon-svg';
+export {default as CompanyIconSvg} from './company-icon-svg';
+export {default as LocationIconSvg} from './location-icon-svg';

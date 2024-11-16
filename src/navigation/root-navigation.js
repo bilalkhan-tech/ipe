@@ -1,18 +1,21 @@
-// In App.js in a new project
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
 import {StatusBar, StyleSheet, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {colors} from '../config/colors';
-import ForgotPassword from '../screens/forgot-password';
-import OnboardingScreen from '../screens/on-boarding';
-import PrescreeningCandidates from '../screens/prescreening-candidates';
-import RecruitmentDashboard from '../screens/recruitment-dashboard';
-import SelectUserType from '../screens/select-user-type';
-import SignIn from '../screens/sign-in';
-import SignUp from '../screens/sign-up';
-import SignUpOrLogin from '../screens/signup-or-login';
 import Splash from '../screens/splash';
+import {colors} from '../config/colors';
+import SelectUserType from '../screens/select-user-type';
+import SignUpOrLogin from '../screens/signup-or-login';
+import OnboardingScreen from '../screens/on-boarding';
+import SignIn from '../screens/sign-in';
+import PrescreeningCandidates from '../screens/prescreening-candidates';
+import SignUp from '../screens/sign-up';
+import ForgotPassword from '../screens/forgot-password';
+import RecruitmentDashboard from '../screens/recruitment-dashboard';
+import RecruiterProfile from '../screens/recruiter-profile';
+import JobPostScreen from '../screens/iob-post-screen';
+import TotalJobPost from '../screens/total-job-post';
+import JobBoard from '../screens/job-board';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,6 +54,10 @@ export const RootNavigator = () => {
           name="RecruitmentDashboard"
           component={RecruitmentDashboard}
         />
+        <Stack.Screen name="RecruiterProfile" component={RecruiterProfile} />
+        <Stack.Screen name="JobPostScreen" component={JobPostScreen} />
+        <Stack.Screen name="TotalJobPost" component={TotalJobPost} />
+        <Stack.Screen name="JobBoard" component={JobBoard} />
         <Stack.Screen
           name="SignUpOrLogin"
           component={SignUpOrLogin}

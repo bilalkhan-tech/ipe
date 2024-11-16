@@ -25,14 +25,14 @@ const SelectUserType = ({navigation}) => {
         />
       </GradientBackground>
       <PrimaryButton
-        onclick={() => navigation.navigate('SignUpOrLogin')}
+        onclick={() => navigation.replace('SignUpOrLogin')}
         label="Candidate"
         height={56}
         style={styles.candidateBtn}
         textStyle={styles.candidateTxt}
       />
       <PrimaryButton
-        onclick={() => navigation.navigate('SignUpOrLogin')}
+        onclick={() => navigation.replace('SignUpOrLogin')}
         label="Recruiter"
         height={56}
         style={styles.recruiterBtn}

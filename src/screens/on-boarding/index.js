@@ -62,7 +62,7 @@ const OnboardingScreen = ({navigation}) => {
         animated: true,
       });
     } else {
-      navigation.navigate('SelectUserType');
+      navigation.replace('SelectUserType');
     }
   };
 
@@ -92,7 +92,7 @@ const OnboardingScreen = ({navigation}) => {
                 screens.length
               }`}</Text>
               <TouchableOpacity
-                onPress={() => navigation.navigate('SelectUserType')}
+                onPress={() => navigation.replace('SelectUserType')}
                 style={styles.skipButton}>
                 <Text style={styles.skipText}>Skip</Text>
               </TouchableOpacity>
